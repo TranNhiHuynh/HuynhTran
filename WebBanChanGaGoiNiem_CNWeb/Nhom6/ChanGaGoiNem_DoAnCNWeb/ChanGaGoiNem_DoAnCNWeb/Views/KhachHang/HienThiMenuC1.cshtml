@@ -1,0 +1,13 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+@model List<DanhMuc>
+
+@foreach (var dm in Model)
+{
+    <li class="nav-item navbar dropdown">
+        <a class="nav-link dropdown-toggle" id="abc" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            @dm.TenDanhMuc
+        </a>
+        @Html.Action("HienThiMenuC2", "KhachHang", new { mdm = @dm.MaDanhMuc })
+    </li>
+}

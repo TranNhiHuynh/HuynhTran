@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+
+@using ChanGaGoiNem_DoAnCNWeb.Models;
+@model KhachHang
+<div class="container">
+    <div class="row w-100 text-center" style="margin-top:20px">
+        <h3 style="color:#2613c8" class="w-100">THÔNG TIN GIỎ HÀNG ĐÃ CHỌN</h3>
+    </div>
+    <div class="row w-100" style="padding-left:150px; margin-top:18px">
+        <form action="/KhachHang/XuLiDatHang" method="post">
+            <p>Tên : <span style="font-weight:bold">@Model.TenKH</span></p>
+            <p>Địa chỉ : <span style="font-weight:bold">@Model.DiaChi</span></p>
+            <p>Điện thoại : <span style="font-weight:bold">@Model.SoDienThoai</span></p>
+            <p>Ngày đặt : <span style="font-weight:bold">@DateTime.Now.ToShortDateString()</span></p>
+            <p>
+                Ngày giao hàng:
+                <input type="date" name="txtNgay" />
+            </p>
+            <input type="submit" class="btn btn-success" value="Xác nhận" />
+        </form>
+    </div>
+</div>

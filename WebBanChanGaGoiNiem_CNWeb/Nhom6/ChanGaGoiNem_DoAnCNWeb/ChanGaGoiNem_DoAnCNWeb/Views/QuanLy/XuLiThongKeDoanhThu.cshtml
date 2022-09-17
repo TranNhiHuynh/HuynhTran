@@ -1,0 +1,43 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models
+@{
+    ViewBag.Title = "XuLiThongKeDoanhThu";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var tb = ViewBag.TB as string;
+}
+@model List<HoaDon>
+           @{
+               if(tb != null)
+               {
+                   <div class="row w-100 text-center" style="margin-top:20px">
+                        <h3 style="color:#2613c8" class="w-100">@tb</h3>
+                    </div>
+               }
+               else
+               {
+                  <h3 style="color: #2613c8; margin-top: 20px" class="w-100" >THỐNG KÊ DOANH THU</h3>
+                <table class="table card">
+    <tr>
+        <td>Mã hóa đơn</td>
+        <td>Tên khách hàng</td>
+        <td>Ngày đặt hàng</td>
+        <td>(Số lượng/Tổng tiền)</td>
+    </tr>
+    @foreach (HoaDon item in Model)
+    {
+        <tr>
+            <td>@item.MaHoaDon</td>
+            <td>@item.KhachHang.TenKH</td>
+            <td>@item.NgayHoaDon</td>
+            <td>@Html.Action("ThongKe", "QuanLy", new { mhd = @item.MaHoaDon})</td>
+        </tr>
+    }
+        </table> 
+               <div class="row w-100 text-center" style="margin-top:20px">
+                        <span>TỔNG DOANH THU</span>&nbsp;&nbsp;
+                        <input type="text" value="@ViewBag.TT"/>
+                    </div>
+               
+               }
+           }
+
+

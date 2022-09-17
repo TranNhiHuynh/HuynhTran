@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "ThongKeDoanhThu";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<div class="row w-100" style="margin-left:320px;margin-top:18px">
+    <h5 class="text-success">THỐNG KÊ DOANH THU</h5>
+</div>
+<div class="row w-100" style="margin-top: 10px; margin-left: 300px">
+    <form action="/QuanLy/XuLiThongKeDoanhThu" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>TỪ NGÀY</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="date" name="txtNgayBD" />
+                </div>
+                <div class="col-md-6">
+                    <label>ĐẾN NGÀY</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="date" name="txtNgayKT" />
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="Thống kê" class="btn btn-success"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "XuLiDangKy";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+    var s = ViewBag.TB as string;
+}
+
+@{
+    if(s == "2")
+    {
+           <span>VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN !</span>
+        <a href="/KhachHang/DangKy"><span style="color:#1015e9">&nbsp;QUAY VỀ TRANG ĐĂNG KÝ</span></a>
+    }
+    else if(s == "0")
+    {
+           <span>ĐĂNG KÍ THẤT BẠI. TÀI KHOẢN NÀY ĐÃ TỒN TẠI !</span>
+        <a href="/KhachHang/DangKy"><span style="color:#1015e9">&nbsp;QUAY VỀ TRANG ĐĂNG KÝ</span></a>
+    }
+    else if(s == "1")
+    {
+        <span>BẠN ĐÃ ĐĂNG KÝ THÀNH CÔNG TÀI KHOẢN MỚI !</span>
+        <a href="/KhachHang/DangNhap"><span style="color:#1015e9">&nbsp;QUAY VỀ TRANG ĐĂNG NHẬP</span></a>
+    }
+    else
+    {
+        <span>ĐĂNG KÍ THẤT BẠI. VUI LÒNG KIỂM TRA LẠI THÔNG TIN !</span>
+    <a href="/KhachHang/DangKy"><span style="color:#1015e9">&nbsp;QUAY VỀ TRANG ĐĂNG KÝ</span></a>
+    }
+}

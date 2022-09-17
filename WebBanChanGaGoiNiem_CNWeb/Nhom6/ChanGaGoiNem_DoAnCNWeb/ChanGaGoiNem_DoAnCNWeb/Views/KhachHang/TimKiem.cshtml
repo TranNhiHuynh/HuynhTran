@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+@model List<Loai>
+<div class="container">
+    <div class="row w-100" style="padding-left:400px">
+        <h5 class="text-danger">TÌM KIẾM SẢN PHẨM</h5>
+    </div>
+    <div class="row w-100" style="margin-top:12px; padding-left:400px">
+        <form action="/KhachHang/XuLiTimKiem" method="post" class="w-100">
+            <label>Tên sản phẩm</label>
+            <input type="text" name="txtTenSP" placeholder="Từ khóa..." />
+            <br />
+            <br />
+            <label>Loại sản phẩm</label>
+            <select name="txtTenLoai">
+                <option value="-1">Tất cả</option>
+                @foreach(var l in Model)
+                {
+                    <option value="@l.MaLoai">@l.TenLoai</option>
+                }
+            </select>
+            <br />
+            <input type="submit" value="Tìm Kiếm" name="TimKiem" class="btn btn-success"/>
+        </form>
+    </div>
+    <div class="row w-100" style="height:15px;background-color:#0094ff; margin-top:18px;">
+    </div>
+</div>
+
+
+

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+
+@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+@model GioHang
+@if (Model == null || Model.SoMatHang() == 0)
+{
+    <p> GIỎ HÀNG CỦA BẠN RỖNG !</p>
+}
+else
+{
+ <h3 style="color:#2613c8" class="w-100">THÔNG TIN GIỎ HÀNG ĐÃ CHỌN</h3>
+    <table class="table card">
+        <tr>
+            <td>Mã sản phẩm</td>
+            <td>Tên sản phẩm</td>
+            <td>Ảnh</td>
+            <td>Số lượng</td>
+            <td>Đơn giá</td>
+            <td>Thành tiền</td>
+        </tr>
+        @foreach (CartItem item in Model.lst)
+        {
+            <tr>
+                <td>@item.iMaSP</td>
+                <td>@item.sTenSP</td>
+                <td><img src="~/Content/HinhAnh/@item.sAnhBia" width="50" height="50" /></td>
+                <td>@item.iSoLuong</td>
+                <td>@item.dDonGia</td>
+                <td>@item.ThanhTien</td>
+                <td><a href="/KhachHang/XoaDonHang/@item.iMaSP" class="btn btn-info">Xóa</a></td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3" style="color:#ff0000">TỔNG</td>
+            <td class="text-danger">@Model.TongSLHang()</td>
+            <td></td>
+            <td class="text-danger">@String.Format("{0:#,##}", Model.TongThanhTIen())</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="5"></td>
+            <td>
+                @Html.ActionLink("Đặt hàng", "DatHang", "KhachHang", new { @class = "btn btn-danger" })
+             </td>
+        </tr>
+    </table>
+}
+

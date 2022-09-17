@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+<div class="row w-100" style="padding-left:300px">
+    <h5 class="text-success">ĐĂNG NHẬP TÀI KHOẢN KHÁCH HÀNG</h5>
+</div>
+<div class="row w-100" style="padding-left:300px">
+    <form action="/KhachHang/XuLiDangNhap" method="post">
+        <br />
+        <div class="form-inline">
+            <span>TÀI KHOẢN</span>
+            &nbsp;
+            <input type="text" name="txtTK" />
+        </div>
+        <br />
+        <div class="form-inline">
+            <span>MẬT KHẨU</span>
+            &nbsp;
+            <input type="password" name="txtMK" />
+        </div>
+        <br />
+        <input type="submit" value="ĐĂNG NHẬP" />
+    </form>
+</div>
+<div class="row w-100" style="margin-top:10px">
+    <div class="form-inline" style="padding-left:300px">
+        <br />
+        <span>NẾU BẠN CHƯA CÓ TÀI KHOẢN VUI LÒNG </span>
+        <a href="/KhachHang/DangKy"><span style="color:#1015e9;font-weight:bold">&nbsp; ĐĂNG KÝ</span></a>
+        <span>&nbsp;TÀI KHOẢN MỚI !</span>
+    </div>
+</div>

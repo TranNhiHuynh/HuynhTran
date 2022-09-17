@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "XuLiThemSP";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var s = ViewBag.TB as string;
+}
+@using ChanGaGoiNem_DoAnCNWeb.Models
+@model SanPham
+@{
+    
+    if(s != null)
+    {
+        <div class="row w-100" style="margin-left:320px;margin-top:18px">
+    <h5 class="text-success">@s</h5>
+        </div>
+    }
+    else
+    {
+<div class="row w-100 text-center" style="margin-top:20px">
+
+    <h3 style="color:#2613c8" class="w-100">THÊM SẢN PHẨM THÀNH CÔNG</h3>
+</div>
+<div class="row w-100">
+    <div class="col-7 card" style="padding: 12px">
+        <img class="w-100" src="~/Content/HinhAnh/@Model.HinhAnh" />
+    </div>
+    <div class="col-5 card">
+        <span>Tên:</span><h5 style="color:#ff0000">&nbsp;@Model.TenSP</h5>
+        <span>Giá:</span><h5 style="color:#ff0000">&nbsp;@String.Format("{0:0,0}", Model.DonGia) VNĐ</h5>
+        <span>Loại:</span><h5 style="color:#ff0000">&nbsp;@Model.Loai.TenLoai</h5>
+        <span>Số lượng còn lại:</span><h5 style="color:#ff0000">&nbsp;@Model.SoLuongTon</h5>
+    </div>
+</div>
+}
+}

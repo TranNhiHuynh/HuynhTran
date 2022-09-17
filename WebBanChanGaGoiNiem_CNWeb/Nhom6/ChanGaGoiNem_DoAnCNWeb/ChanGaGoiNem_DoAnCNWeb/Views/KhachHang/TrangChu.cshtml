@@ -1,0 +1,56 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models;
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+    var NB = ViewBag.NB as List<SanPham>;
+    var KM = ViewBag.KM as List<SanPham>;
+}
+
+<div class="container">
+    <div class="row w-100">
+        <a href="/KhachHang/TrangChu"><img src="~/Content/HinhAnh/content.png" width="1110" height="450"/></a>
+    </div>
+    <div class="row w-100 text-center" style="margin-top:20px">
+        <h3 style="color:#2613c8" class="w-100">CÁC SẢN PHẨM NỔI BẬT</h3>
+    </div>
+    <div class="row w-100">
+        
+            @{
+                foreach(var sp in NB)
+                {
+                    <div class="col-4 card text-center" >              
+                        <div class="card-body">
+                            <img src="~/Content/HinhAnh/@sp.HinhAnh" width="300" height="250" />
+                            <br />
+                            <h5 style="color:#ff0000">@sp.TenSP</h5>
+                            <h5>@String.Format("{0:0,0}", sp.DonGia) VNĐ</h5>
+                            <p>@Html.ActionLink("CHI TIẾT", "ChiTietSanPham", "KhachHang", new { id = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })</p> 
+                            @Html.ActionLink("THÊM VÀO GIỎ HÀNG", "ThemVaoGioHang", "KhachHang", new { msp = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })
+                        </div>   
+                    </div>
+                }
+            }
+    </div>
+    <div class="row w-100 text-center" style="margin-top:20px">
+        <h3 style="color:#2613c8" class="w-100">CÁC SẢN PHẨM KHUYẾN MÃI</h3>
+    </div>
+    <div class="row w-100">
+
+        @{
+            foreach (var sp in KM)
+            {
+                <div class="col-4 card text-center">
+                    <div class="card-body">
+                        <img src="~/Content/HinhAnh/@sp.HinhAnh" width="300" height="250" />
+                        <br />
+                        <h5 style="color:#ff0000">@sp.TenSP</h5>
+                        <h5>@String.Format("{0:0,0}", sp.DonGia) VNĐ</h5>
+                        <p>@Html.ActionLink("CHI TIẾT", "ChiTietSanPham", "KhachHang", new { id = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })</p>
+                        @Html.ActionLink("THÊM VÀO GIỎ HÀNG", "ThemVaoGioHang", "KhachHang", new { msp = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>

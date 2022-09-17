@@ -1,0 +1,33 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+@{
+    ViewBag.Title = "HienThiDSSP";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+
+@model List<SanPham>
+
+<div class="row w-100 text-center" style="margin-top:20px">
+            
+        <h3 style="color:#2613c8" class="w-100">@Model[0].Loai.TenLoai</h3>
+
+
+</div>
+<div class="row w-100">
+    @{
+            foreach (var sp in Model)
+            {
+            <div class="col-4 card text-center">
+                <div class="card-body">
+                    <img src="~/Content/HinhAnh/@sp.HinhAnh" width="300" height="250" />
+                    <br />
+                    <h5 style="color:#ff0000">@sp.TenSP</h5>
+                    <h5>@String.Format("{0:0,0}", sp.DonGia) VNĐ</h5>
+                    <p>@Html.ActionLink("CHI TIẾT", "ChiTietSanPham", "KhachHang", new { id = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })</p>
+                    @Html.ActionLink("THÊM VÀO GIỎ HÀNG", "ThemVaoGioHang", "KhachHang", new { msp = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })
+                </div>
+            </div>
+            }
+    }
+</div>
+

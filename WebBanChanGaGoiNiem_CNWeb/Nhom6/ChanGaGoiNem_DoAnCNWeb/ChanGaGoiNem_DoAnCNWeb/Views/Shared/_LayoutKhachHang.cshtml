@@ -1,0 +1,124 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container w-100">
+        <div class="row w-100" style="padding-top:15px">
+            <div class="col-3">
+                <a href="/KhachHang/TrangChu"><img src="~/Content/HinhAnh/logo.png" /></a>
+            </div>             
+            <div class="col-3">
+                <div class="form-inline">
+                    @{
+                        if (Session["KhachHang"] == null)
+                        {
+                            <a href="/KhachHang/DangNhap">
+                                <img src="~/Content/HinhAnh/dangnhap.png" width="36" height="36" />
+                                <span style="color:#1015e9">&nbsp; ĐĂNG NHẬP</span>
+                            </a>
+                        }
+                        else
+                        {
+                            var k = Session["KhachHang"] as KhachHang;
+                            <img src="~/Content/HinhAnh/dangnhap.png" width="36" height="36" />
+                            <span>&nbsp;Chào @k.TaiKhoan</span>
+                            <a href="/KhachHang/DangXuat"><span style="color:#1015e9">&nbsp;,ĐĂNG XUẤT</span></a>
+                        }
+                    }                                    
+                </div>
+            </div> 
+            <div class="col-3">
+                <div class="form-inline">
+                    <a href="/KhachHang/XemGioHang">
+                        <img src="~/Content/HinhAnh/giohang.png" />
+                        @{
+                            GioHang g = Session["GioHang"] as GioHang;
+                            if (g != null)
+                            {
+                                <span style="color:#1015e9">&nbsp;(@g.SoMatHang()) SẢN PHẨM</span>
+                            }
+                            else
+                            {
+                                <span style="color:#1015e9">&nbsp;(0) SẢN PHẨM</span>
+                            }
+                        }
+                    </a>       
+                </div>
+            </div> 
+            <div class="col-3">
+                <div class="form-inline">
+                    <a href="/QuanLy/TrangChu">
+                        <img src="~/Content/HinhAnh/nhanvien.jpg" width="40" height="40"/>                    
+                                <span style="color:#1015e9">&nbsp; QUẢN LÝ</span>
+                    </a>
+                </div>
+            </div>        
+        </div>
+        <div class="row w-100" style="background-color:#ffd800; margin-top:20px">
+            <div class="col-3.5">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/KhachHang/TrangChu">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KhachHang/TimKiem">Tìm kiếm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KhachHang/LichSuDatHang">Lịch sử đơn hàng</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-8.5">
+                <ul class="nav">
+                    @Html.Action("HienThiMenuC1", "KhachHang")
+                </ul>
+            </div>
+        </div>
+        <div class="row w-100" style="margin-top:20px">
+            @RenderBody()
+        </div>
+        <div class="row w-100" style="margin-top:20px; background-color:#110404; height:300px;">
+            <div class="col-4 text-white" style="margin-top:22px">
+                <span style="font-weight:bold">CÔNG TY SX TM THANH THỦY</span>
+                <br />
+                <a><span>1. Điều khoản & Điều kiện</span></a>
+                <br />
+                 <a><span>2. Chính Sách Bảo Mật</span></a>
+                <br />
+                 <a><span>3. Hình Thức Thanh Toán</span></a>
+                <br />
+                <a><span>4. Chính Sách Vận Chuyển & Giao Nhận</span></a>
+                <br />
+               <a><span>5. Chính Sách Đổi Trả Sản Phẩm</span></a>
+                </div>
+            <div class="col-4 text-white" style="margin-top:22px">
+                <span style="font-weight:bold">LIÊN HỆ VỚI CHÚNG TÔI</span>
+                <br />
+                <a><span>- Đ/C: 181D Đường 3/2, Phường 11, Quận 10, TP.Hồ Chí Minh</span></a>
+                <br />
+                <a><span>- LH: 0917344345</span></a>
+                <br />
+                <a><span>- Email: trannhihuynh10@gmail.com</span></a>
+                <br />
+                <a><span>- FB: https://www.facebook.com/thanhthuy </span></a>
+                <br />
+                <a><span>- Zalo: 0917344352(Mỹ Tâm)</span></a>
+            </div>
+            <div class="col-4 text-white" style="margin-top:22px">
+                <span style="font-weight:bold">HƯỚNG DẪN</span>
+                <br />
+                <img src="~/Content/HinhAnh/diachi.png"  width="330" height="160"/>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

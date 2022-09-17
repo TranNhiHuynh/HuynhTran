@@ -1,0 +1,10 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+@model List<Loai>
+<div class="dropdown-menu" aria-labelledby="abc">
+    @foreach (var l in Model)
+    {
+        <a class="dropdown-item" href="/KhachHang/HienThiSPTheoLoai/@l.MaLoai">@l.TenLoai</a>
+
+    }
+</div>

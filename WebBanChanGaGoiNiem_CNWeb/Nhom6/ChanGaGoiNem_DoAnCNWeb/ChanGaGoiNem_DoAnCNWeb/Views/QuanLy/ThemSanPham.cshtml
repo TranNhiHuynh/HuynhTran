@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "ThemSanPham";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var s = ViewBag.TB as string;
+}
+@using ChanGaGoiNem_DoAnCNWeb.Models
+@model List<Loai>
+<div class="row w-100" style="margin-left:320px;margin-top:18px">
+    <h5 class="text-success">THÊM MỚI SẢN PHẨM</h5>
+</div>
+<div class="row w-100" style="margin-top: 10px; margin-left: 300px">
+    <form action="/QuanLy/XuLiThemSP" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>TÊN SẢN PHẨM</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtTenSP" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>ĐƠN GIÁ</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtDG" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>HÌNH ẢNH</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="file" name="fileUpload" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>SỐ LƯỢNG</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtSL" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>LOẠI SẢN PHẨM</label>
+                </div>
+                <div class="col-md-6">
+                    <select name="txtLoaiSP">
+                        @foreach (var l in Model)
+                        {
+                            <option value="@l.MaLoai">@l.TenLoai</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <br />           
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="THÊM" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

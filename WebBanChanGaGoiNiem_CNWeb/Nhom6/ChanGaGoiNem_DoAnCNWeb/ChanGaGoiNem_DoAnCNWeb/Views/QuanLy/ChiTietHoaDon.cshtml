@@ -1,0 +1,36 @@
+﻿@using ChanGaGoiNem_DoAnCNWeb.Models
+@model List<ChiTiet>
+<table class="table">
+    <tr>
+        <th class="w-10">
+            Mã sách
+        </th>
+        <th class="w-10">
+            Tên sách
+        </th>
+        <th class="w-10">
+            Số lượng
+        </th>
+        <th class="w-10">
+            Đơn giá
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MaSP
+            </td>
+            <td>
+                @item.SanPham.TenSP
+            </td>
+            <td>
+                @item.SoLuong
+            </td>
+            <td>
+                @item.SanPham.DonGia
+            </td>
+        </tr>
+    }
+</table>

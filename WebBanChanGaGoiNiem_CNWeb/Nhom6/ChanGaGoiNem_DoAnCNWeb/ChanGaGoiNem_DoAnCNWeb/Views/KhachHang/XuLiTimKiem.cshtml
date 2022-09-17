@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "XuLiTimKiem";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+@using ChanGaGoiNem_DoAnCNWeb.Models
+@model List<SanPham>
+<div class="container w-100">
+
+    <div class="row w-100" style="margin-top:18px;padding-left:400px">
+        <h5 class="text-warning">CÓ "@Model.Count" SẢN PHẨM TÌM KIẾM ĐƯỢC</h5>
+    </div>
+    <div class="row w-100" style="margin-top:12px;">
+        @{
+            foreach (var sp in Model)
+            {
+                <div class="col-4 card text-center">
+                    <div class="card-body">
+                        <img src="~/Content/HinhAnh/@sp.HinhAnh" width="300" height="250" />
+                        <br />
+                        <h5 style="color:#ff0000">@sp.TenSP</h5>
+                        <h5>@String.Format("{0:0,0}", sp.DonGia) VNĐ</h5>
+                        <p>@Html.ActionLink("CHI TIẾT", "ChiTietSanPham", "KhachHang", new { id = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })</p>
+                        @Html.ActionLink("THÊM VÀO GIỎ HÀNG", "ThemVaoGioHang", "KhachHang", new { msp = @sp.MaSanPham }, new { @class = "btn btn-danger text-white" })
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>

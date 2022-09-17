@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+}
+<div class="row w-100" style="margin-left:320px">
+    <h5 class="text-success">ĐĂNG KÝ TÀI KHOẢN</h5>
+</div>
+<div class="row w-100" style="margin-top: 10px; margin-left: 300px">
+    <form action="/KhachHang/XuLiDangKy" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>HỌ TÊN KHÁCH HÀNG</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtTenKH" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>TÀI KHOẢN</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtTK" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>MẬT KHẨU</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" name="txtMK" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>NHẬP LẠI MẬT KHẨU</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" name="txtMK2" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>ĐỊA CHỈ</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtDC" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label>SỐ ĐIỆN THOẠI</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="txtSDT" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="ĐĂNG KÍ" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+

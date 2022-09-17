@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "LichSuDatHang";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+    var s = ViewBag.TB as string;
+}
+
+@using ChanGaGoiNem_DoAnCNWeb.Models;
+
+
+@model List<HoaDon>
+@{
+    if(s != null)
+    {
+        <h5 class="text-success"> BẠN CẦN ĐĂNG NHẬP ĐỂ SỬ DỤNG CHỨC NĂNG NÀY !</h5>
+    }   
+   else if (Model == null )
+{
+<h5 class="text-success"> BẠN CHƯA CÓ ĐƠN HÀNG NÀO</h5>
+}
+else
+{
+<h3 style="color:#2613c8" class="w-100">THÔNG TIN CÁC ĐƠN HÀNG ĐÃ ĐẶT CỦA BẠN</h3>
+<table class="table card">
+    <tr>
+        <td>Mã hóa đơn</td>
+        <td>Tên khách hàng</td>
+        <td>Ngày đặt hàng</td>
+        <td>Ngày giao hàng</td>
+    </tr>
+    @foreach (HoaDon item in Model)
+        {
+        <tr>
+            <td>@item.MaHoaDon</td>
+            <td>@item.KhachHang.TenKH</td>
+            <td>@item.NgayHoaDon</td>
+            <td>@item.NgayGiao</td>
+        </tr>
+        }
+</table>
+}    
+}
+
+
